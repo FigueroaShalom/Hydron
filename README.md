@@ -1,61 +1,86 @@
-    
-# 🌐 HYDRON
-### Sistema Web de Gestión de Información
+# 🌊 HYDRON
+### Un mar de ideas, un punto entre la ciencia y la sociedad
 
 ---
 
-# 📖 Descripción General
+# 📖 ¿Qué es Hydron?
 
-**Hydron** es una aplicación web diseñada para facilitar la gestión y visualización de información mediante una interfaz dinámica e intuitiva.
+**Hydron** es una plataforma web diseñada para **difundir información relacionada con la conservación de los océanos y los ecosistemas marinos**, alineándose con el **Objetivo de Desarrollo Sostenible 14 (ODS 14): Vida Submarina**.
 
-El sistema permite a los usuarios consultar datos, aplicar filtros y administrar información desde un navegador web.  
-Este proyecto fue desarrollado como parte de un **proyecto académico**, con el objetivo de aplicar conocimientos de desarrollo web, bases de datos y trabajo colaborativo.
+El sistema permite a los usuarios **consultar artículos, visualizar contenido educativo y participar en la difusión de información ambiental**, mientras que los administradores y editores pueden **gestionar y supervisar las publicaciones dentro de la plataforma**.
 
----
-
-# 🎯 Objetivos del Sistema
-
-- Facilitar la gestión de información mediante una plataforma web.
-- Implementar una interfaz clara y fácil de usar.
-- Permitir la visualización y filtrado de datos de forma eficiente.
-- Aplicar buenas prácticas de desarrollo web y control de versiones.
+Hydron busca **acercar el conocimiento científico y ambiental a la sociedad**, facilitando el acceso a información clara, organizada y accesible sobre los desafíos que enfrentan los océanos.
 
 ---
 
-# 🧩 Características Principales
+# 🌍 Relación con el ODS 14
 
-Hydron incluye diversas funcionalidades que permiten mejorar la experiencia del usuario:
+El **ODS 14** tiene como objetivo **conservar y utilizar de manera sostenible los océanos, mares y recursos marinos**.
+
+Hydron contribuye a este objetivo mediante:
+
+- Difusión de información sobre problemas ambientales marinos.
+- Publicación de contenido educativo sobre conservación oceánica.
+- Generación de conciencia ambiental en la comunidad.
+- Promoción del acceso a información científica sobre el cuidado del océano.
+
+---
+
+# 🎯 Objetivos del Proyecto
+
+## Objetivo General
+
+Desarrollar una página web de divulgación científica que transforme investigaciones y tesis
+sobre conservación marina en contenido dinámico, accesible y comprensible para la
+sociedad, contribuyendo al cumplimiento del ODS 14.
+
+## Objetivos Específicos
+
+- Adaptar el contenido científico a un formato dinámico y de fácil comprensión,
+mediante lenguaje claro y recursos multimedia.
+- Diseñar una página web organizada e interactiva que facilite el acceso a información
+sobre contaminación marina y biodiversidad.
+- Recopilar y sistematizar investigaciones y tesis relacionadas con la conservación
+marina, garantizando que la información provenga de fuentes confiables
+
+---
+
+# 💡 Justificación
+
+La contaminación y degradación de los océanos es un problema que afecta a toda la sociedad. Sin embargo, gran parte de la información científica sobre este tema se encuentra en artículos y publicaciones académicas que son difíciles de comprender para el público general.
+
+Debido a esta situación, muchas personas no tienen acceso a información clara que les permita entender los problemas que afectan a los mares y cómo pueden contribuir a su cuidado.
+
+Por esta razón, el proyecto **Hydron** propone el desarrollo de una plataforma web que traduzca información científica sobre el océano a un lenguaje más simple, accesible y visual, permitiendo que la sociedad pueda comprender mejor estos temas y fomentar una mayor conciencia ambiental.
+
+---
+
+# 🧩 Funcionalidades del Sistema
+
+La plataforma Hydron incluye diversas funcionalidades orientadas a la gestión y visualización de información.
 
 ### 👤 Gestión de usuarios
-Permite registrar, consultar y administrar información dentro del sistema.
+Permite registrar y administrar usuarios dentro del sistema.
 
-### 🔎 Búsqueda y filtrado de datos
-Los usuarios pueden buscar información específica utilizando diferentes filtros.
+### 📰 Publicación de artículos e tesis
+Los usuarios autorizados pueden crear y publicar artículos relacionados con la conservación marina.
 
-### 📊 Visualización de información
-Los datos se muestran de forma organizada y clara dentro de la plataforma.
+### 🛠️ Panel de administración
+Los administradores pueden gestionar contenido y usuarios desde un dashboard.
 
-### 🌐 Interfaz web dinámica
-La aplicación cuenta con navegación sencilla y diseño enfocado en la usabilidad.
+### ❤️ Sistema de interacción
+Los usuarios pueden interactuar con los artículos mediante:
 
----
+- sistema de likes
+- comentarios
 
-# 📸 Capturas del Sistema
-
-*(Agregar capturas del sistema cuando el proyecto esté terminado)*
-
-Ejemplo:
-
-- Pantalla de inicio de sesión  
-- Panel principal (Dashboard)  
-- Gestión de usuarios  
-- Sección de búsqueda  
+### 🌐 Navegación de contenido
+Los visitantes pueden explorar los artículos desde la página principal del sistema.
 
 ---
 
 # 📂 Estructura del Proyecto
 
-```
 Hydron/
 │
 ├── css/              # Archivos de estilos
@@ -66,95 +91,61 @@ Hydron/
 │
 ├── index.php         # Página principal
 ├── login.php         # Inicio de sesión
-├── dashboard.php     # Panel principal
+├── register.php      # Registro de usuarios
+├── dashboard.php     # Panel de administración
 │
-├── .gitignore
 └── README.md
-```
+---
+
+# 🧪 Tecnologías Utilizadas
+
+El sistema fue desarrollado utilizando tecnologías de desarrollo web:
+
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **PHP**
+- **MySQL**
+- **GitHub**
+- **XAMPP**
 
 ---
 
-# ⚙️ Instalación y Ejecución
+# 🏗️ Arquitectura del Sistema
 
-Para ejecutar el proyecto en tu computadora sigue los siguientes pasos:
-
-### 1️⃣ Clonar el repositorio
-
-```bash
-git clone https://github.com/usuario/hydron.git
-```
-
-### 2️⃣ Mover el proyecto
-
-Colocar la carpeta del proyecto en el directorio **htdocs** de XAMPP.
-
-Ejemplo:
-
-```
-C:\xampp\htdocs\Hydron
-```
-
-### 3️⃣ Iniciar el servidor
-
-Abrir **:contentReference[oaicite:1]{index=1}** y ejecutar:
-
-- Apache
-- MySQL
-
-### 4️⃣ Abrir el sistema en el navegador
-
-```
-http://localhost/Hydron
-```
+🚧 **Esta sección se encuentra en proceso de desarrollo.**
 
 ---
 
-# 🧪 Requisitos del Sistema
+# 🗄️ Modelo de Base de Datos
 
-Antes de ejecutar el proyecto asegúrate de cumplir con los siguientes requisitos:
-
-- Sistema operativo: Windows / macOS / Linux
-- Navegador web moderno (Chrome, Edge o Firefox)
-- Servidor local como **:contentReference[oaicite:2]{index=2}**
-- PHP 7 o superior
-- Base de datos MySQL
-
----
-
-# 🧩 Tecnologías Utilizadas
-
-El desarrollo del sistema se realizó utilizando tecnologías modernas de desarrollo web:
-
-- **HTML** — estructura del sitio
-- **CSS** — diseño y estilos visuales
-- **JavaScript** — interactividad de la página
-- **PHP** — lógica del servidor
-- **MySQL** — gestión de base de datos
-- **:contentReference[oaicite:3]{index=3}** — entorno de desarrollo
-- **:contentReference[oaicite:4]{index=4}** — servidor local para pruebas
+🚧 **Esta sección se encuentra en proceso de desarrollo.**
 
 ---
 
 # 👥 Equipo de Desarrollo
 
-| Nombre | Rol |
-|------|------|
-| David Salgado | Desarrollo backend / programación |
-| Integrante 2 | Desarrollo frontend |
-| Integrante 3 | Base de datos |
-| Integrante 4 | Diseño de interfaz |
-| Integrante 5 | Documentación |
+
+
+
+
+| Integrante | Rol | Contacto |
+|-------------|-------------|
+| Delgado Robles Braulio Emiliano| Full stack | bdelgado2@ucol.mx |
+| Figueroa Huerta Isai Shalom | Full stack | ifigueroa7@ucol.mx |
+| Ibarra Cortés Mía Mariana| Full stack | mibarra7@ucol.mx |
+| Salgado Zepeda David | Full stack | dsalgado4@ucol.mx |
+| Segura Paulino Isis Alejandra| Full stack | isegura@ucol.mx |
 
 ---
 
-# 🧠 Créditos y Agradecimientos
+# 🚧 Estado del Proyecto
 
-Agradecemos a nuestros profesores y compañeros por su apoyo y retroalimentación durante el desarrollo del proyecto.
-
-Este sistema fue desarrollado con fines **académicos**, aplicando conocimientos de programación, desarrollo web y trabajo colaborativo.
+El proyecto **Hydron** se encuentra actualmente en fase de **desarrollo**, implementando las funcionalidades principales del sistema.
 
 ---
 
-# 🏆 Licencia
+# 📜 Licencia
 
-Este proyecto es de **uso académico** y fue desarrollado con fines educativos.
+Este proyecto fue desarrollado con **fines académicos y educativos**
+Puedes usar, modificar y distribuir libremente el código, siempre y cuando se otorgue el crédito correspondiente..
