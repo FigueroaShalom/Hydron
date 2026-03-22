@@ -135,7 +135,7 @@ El sistema fue desarrollado utilizando tecnologías de desarrollo web:
 
 ---
 
-# 🚀 Lista de Actividades (Roadmap)
+# 🚀 Lista de Actividades
 
 ### Fase 1: Planificación y Protocolo 
 - [x] [cite_start]Definición del problema y justificación [cite: 412, 423]
