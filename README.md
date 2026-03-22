@@ -146,12 +146,12 @@ El sistema fue desarrollado utilizando tecnologías de desarrollo web:
 
 ### Fase 2: Diseño y Base de Datos 
 - [x] Diseño de la arquitectura de la base de datos  
-- [ ]Creación de tablas en MySQL (Usuarios, Roles, Artículos) 
+- [ ] Creación de tablas en MySQL (Usuarios, Roles, Artículos) 
 - [ ] Diseño de interfaces finales (Dashboard Administrador/Editor/Autor)
 
 ### Fase 3: Desarrollo (En Proceso) 🏗️
 - [x] Configuración del entorno local (XAMPP)
-- [ ]Implementación de sistema de Login y Registro con PHP 
+- [ ] Implementación de sistema de Login y Registro con PHP 
 - [ ] Maquetación de la página principal (Home) con HTML/CSS 
 - [ ] Conexión dinámica PHP-MySQL para la gestión de artículos
 
