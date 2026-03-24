@@ -1,3 +1,4 @@
+//Conexion de base de datos life_below_blog
 <?php
 
 $host = "localhost";
