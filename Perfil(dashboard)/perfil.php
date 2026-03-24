@@ -10,7 +10,9 @@ if(!isset($_SESSION['id'])){
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Pragma: no-cache");
 
-$nombre = $_SESSION['nombre'];
+// 🔥 CAMBIO AQUÍ
+$user = $_SESSION['user'];
+$email = $_SESSION['email'];
 $rol = $_SESSION['rol'];
 ?>
 
@@ -40,7 +42,11 @@ body{background:#f4f6f9;}
 
 <div class="usuario">
 <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" width="70"><br>
-<strong><?php echo $nombre; ?></strong><br>
+
+<!-- 🔥 CAMBIO -->
+<strong><?php echo $user; ?></strong><br>
+<small><?php echo $email; ?></small><br>
+
 <?php echo ucfirst($rol); ?>
 </div>
 
@@ -53,7 +59,7 @@ body{background:#f4f6f9;}
 <button class="btn btn-light" onclick="cargar('mis_publicacionePendientes')">Mis publicaciones Pendientes</button>
 <button class="btn btn-light" onclick="cargar('publicaciones_Revision')">Publicaciones en Revisión</button>
 <button class="btn btn-warning" onclick="cargar('administrar_Usuarios')">Administrar usuarios</button>
-<button class="btn btn-warning" onclick="cargar('crear_Usuarios')">crear Usuario</button>
+<button class="btn btn-warning" onclick="cargar('crear_Usuarios')">Crear Usuario</button>
 
 <?php } elseif($rol == "editor"){ ?>
 <button class="btn btn-light" onclick="cargar('crear_Contenido')">Crear Contenido</button>
@@ -79,7 +85,7 @@ body{background:#f4f6f9;}
 
 <!-- CONTENIDO -->
 <div class="contenido" id="contenido">
-<h4>Bienvenido al sistema</h4>
+<h4>Bienvenido <?php echo $user; ?> 👋</h4>
 <p>Selecciona una opción del menú</p>
 </div>
 

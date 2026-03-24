@@ -2,7 +2,7 @@
 include("conexion.php");
 session_start();
 
-if(isset($_SESSION['usuario'])){
+if(isset($_SESSION['user'])){
     header("Location: perfil.php");
     exit();
 }
@@ -12,29 +12,31 @@ if(isset($_POST['login'])){
     $usuario = $_POST['usuario'];
     $password = $_POST['password'];
 
-    // 🔥 CAMBIO AQUÍ (contraseña → password)
-    $sql = "SELECT * FROM usuarios WHERE nombreUsuario='$usuario' AND password='$password'";
+    // Buscar SOLO por usuario
+    $sql = "SELECT * FROM usuarios WHERE user='$usuario'";
     $resultado = $conexion->query($sql);
 
     if($resultado->num_rows > 0){
+
         $datos = $resultado->fetch_assoc();
 
-        $_SESSION['id'] = $datos['id'];
-        $_SESSION['usuario'] = $datos['nombreUsuario'];
-        $_SESSION['nombre'] = $datos['nombre'];
-        $_SESSION['apellidoP'] = $datos['apellidoP'];
-        $_SESSION['apellidoM'] = $datos['apellidoM'];
-        $_SESSION['fecha'] = $datos['fecha'];
-        $_SESSION['correo'] = $datos['correo'];
-        $_SESSION['rol'] = $datos['rol'];
+        // 🔐 Verificar contraseña encriptada
+        if(password_verify($password, $datos['password'])){
 
-        // 🔥 TAMBIÉN AQUÍ
-        $_SESSION['password'] = $datos['password'];
+            $_SESSION['id'] = $datos['id'];
+            $_SESSION['user'] = $datos['user'];
+            $_SESSION['email'] = $datos['email'];
+            $_SESSION['rol'] = $datos['rol'];
 
-        header("Location: perfil.php");
-        exit();
-    }else{
-        $error = "Usuario o contraseña incorrectos";
+            header("Location: perfil.php");
+            exit();
+
+        } else {
+            $error = "Contraseña incorrecta";
+        }
+
+    } else {
+        $error = "Usuario no existe";
     }
 }
 ?>

@@ -2,6 +2,7 @@
 include("conexion.php");
 session_start();
 
+// 🔒 Solo admin
 if(!isset($_SESSION['id']) || $_SESSION['rol'] != "administrador"){
     echo "Acceso no autorizado";
     exit();
@@ -9,22 +10,36 @@ if(!isset($_SESSION['id']) || $_SESSION['rol'] != "administrador"){
 
 if($_POST){
 
-    $usuario = $_POST['usuario'];
-    $nombre = $_POST['nombre'];
-    $apellidoP = $_POST['apellidoP'];
-    $apellidoM = $_POST['apellidoM'];
-    $genero = $_POST['genero'];
-    $fecha = $_POST['fecha'];
-    $correo = $_POST['correo'];
-    $rol = $_POST['rol'];
+    // ✅ NUEVOS CAMPOS
+    $user = trim($_POST['user']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
+    $rol = $_POST['rol'];
 
-    $sql = "INSERT INTO usuarios 
-    (nombreUsuario, nombre, apellidoP, apellidoM, genero, fecha, correo, rol, password) 
-    VALUES 
-    ('$usuario','$nombre','$apellidoP','$apellidoM','$genero','$fecha','$correo','$rol','$password')";
+    // 🔐 Encriptar contraseña
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-    if($conexion->query($sql)){
+    // 🔍 Validar usuario o correo duplicado
+    $stmt = $conexion->prepare("SELECT id FROM usuarios WHERE user = ? OR email = ?");
+    $stmt->bind_param("ss", $user, $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if($resultado->num_rows > 0){
+        echo "
+        <script>
+            alert('El usuario o correo ya existe');
+            window.location.href='perfil.php';
+        </script>
+        ";
+        exit();
+    }
+
+    // ✅ Insertar usuario
+    $stmt = $conexion->prepare("INSERT INTO usuarios (user, email, password, rol) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("ssss", $user, $email, $passwordHash, $rol);
+
+    if($stmt->execute()){
         echo "
         <script>
             alert('Usuario creado correctamente');
@@ -34,11 +49,13 @@ if($_POST){
     } else {
         echo "
         <script>
-            alert('Error: ".$conexion->error."');
+            alert('Error al crear usuario');
             window.location.href='perfil.php';
         </script>
         ";
     }
+
+    $stmt->close();
 
 } else {
     echo "

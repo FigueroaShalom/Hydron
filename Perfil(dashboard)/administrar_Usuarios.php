@@ -2,16 +2,19 @@
 include("conexion.php");
 session_start();
 
-if(!isset($_SESSION['id'])){
-    echo "Acceso no autorizado";
+// 🔒 Solo admin
+if(!isset($_SESSION['id']) || $_SESSION['rol'] != "administrador"){
+    echo "<div class='alert alert-danger'>Acceso no autorizado</div>";
     exit();
 }
 
 $idActual = $_SESSION['id'];
 
-// obtener usuarios menos el actual
-$sql = "SELECT * FROM usuarios WHERE id != $idActual";
-$resultado = $conexion->query($sql);
+// 🔐 Consulta segura
+$stmt = $conexion->prepare("SELECT id, user, email, rol, fecha_de_registro FROM usuarios WHERE id != ?");
+$stmt->bind_param("i", $idActual);
+$stmt->execute();
+$resultado = $stmt->get_result();
 ?>
 
 <h3 class="mb-4">Administrar Usuarios</h3>
@@ -21,12 +24,9 @@ $resultado = $conexion->query($sql);
 <tr>
     <th>ID</th>
     <th>Usuario</th>
-    <th>Nombre</th>
-    <th>Apellido P</th>
-    <th>Apellido M</th>
-    <th>Fecha</th>
-    <th>Correo</th>
+    <th>Email</th>
     <th>Rol</th>
+    <th>Registro</th>
     <th>Acciones</th>
 </tr>
 </thead>
@@ -37,26 +37,25 @@ $resultado = $conexion->query($sql);
 
 <tr>
     <td><?php echo $row['id']; ?></td>
-    <td><?php echo $row['nombreUsuario']; ?></td>
-    <td><?php echo $row['nombre']; ?></td>
-    <td><?php echo $row['apellidoP']; ?></td>
-    <td><?php echo $row['apellidoM']; ?></td>
-    <td><?php echo $row['fecha']; ?></td>
-    <td><?php echo $row['correo']; ?></td>
-    <td><?php echo $row['rol']; ?></td>
+    <td><?php echo $row['user']; ?></td>
+    <td><?php echo $row['email']; ?></td>
+    <td><?php echo ucfirst($row['rol']); ?></td>
+    <td><?php echo $row['fecha_de_registro']; ?></td>
 
     <td>
-    <button class="btn btn-warning btn-sm">Editar</button>
+        <button class="btn btn-warning btn-sm">Editar</button>
 
-    <a href="eliminar_usuario.php?id=<?php echo $row['id']; ?>"
-       class="btn btn-danger btn-sm"
-       onclick="return confirm('¿Seguro que deseas eliminar esta cuenta?')">
-       Eliminar
-    </a>
-</td>
+        <a href="eliminar_usuario.php?id=<?php echo $row['id']; ?>"
+           class="btn btn-danger btn-sm"
+           onclick="return confirm('¿Seguro que deseas eliminar esta cuenta?')">
+           Eliminar
+        </a>
+    </td>
 </tr>
 
 <?php } ?>
 
 </tbody>
 </table>
+
+<?php $stmt->close(); ?>
