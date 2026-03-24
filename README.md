@@ -144,21 +144,39 @@ El sistema fue desarrollado utilizando tecnologías de desarrollo web:
 - [x] Diseño de Mockups iniciales 
 - [x] Creación del cronograma y presupuesto
 
-### Fase 2: Diseño y Base de Datos 
-- [x] Diseño de la arquitectura de la base de datos  
-- [ ] Creación de tablas en MySQL (Usuarios, Roles, Artículos) 
-- [ ] Diseño de interfaces finales (Dashboard Administrador/Editor/Autor)
+### Fase 2: Infraestructura y Módulos Base 🏗️
+- [x] **Base de Datos y Conectividad**
+    - [x] Creación de tablas y relaciones en MySQL.
+    - [x] Configuración de conexión PHP-MySQL.
+- [x] **Sistema de Acceso**
+    - [x] Desarrollo de Login funcional.
+    - [x] Implementación de redirección según rol (Admin/Editor/Autor).
+    - [x] Gestión y mejora de sesiones de usuario.
+- [x] **Módulos de Contenido**
+    - [x] Desarrollo del Dashboard de Autor
+    - [x] Maquetación del módulo **Life Below Watch**
+    - [x] Implementación de la Galería multimedia.
+    - [x] Desarrollo del módulo de Noticias.
 
-### Fase 3: Desarrollo (En Proceso) 🏗️
-- [x] Configuración del entorno local (XAMPP)
-- [ ] Implementación de sistema de Login y Registro con PHP 
-- [ ] Maquetación de la página principal (Home) con HTML/CSS 
-- [ ] Conexión dinámica PHP-MySQL para la gestión de artículos
-
-### Fase 4: Pruebas y Entrega Final 
-- [ ] Pruebas de usabilidad y roles de usuario
-- [ ] Depuración de errores en el backend
-- [ ] Entrega final y documentación
+### Fase 3: Funcionalidades Avanzadas, Seguridad y Cierre 🔒
+- [x] **Gestión Administrativa**
+    - [x] Desarrollo de Dashboards para Administrador y Editor.
+    - [x] Implementación del CRUD de artículos y tesis.
+- [ ] **Servicios Interactivos**
+    - [ ] Desarrollo de mapa dinámico y servicios de relación del mar.
+    - [ ] Creación del **Ocean Impact Simulator**.
+    - [ ] Integración con visualización dinámica de datos.
+- [ ] **Seguridad y Optimización**
+    - [ ] Protección contra inyección SQL y validación de formularios.
+    - [ ] Protección avanzada de rutas y sesiones.
+    - [ ] Optimización de consultas SQL y limpieza de código.
+- [ ] **Interfaz y UX**
+    - [ ] Aplicación completa de CSS y diseño responsivo.
+    - [ ] Mejora visual de los dashboards y navegación.
+- [ ] **Cierre del Proyecto**
+    - [ ] Pruebas finales por roles y corrección de bugs.
+    - [ ] Elaboración de documentación técnica y manual de usuario.
+    - [ ] Preparación de la presentación final.
 
 # 🚧 Estado del Proyecto
 
